@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="head-title">
-    <h1>My Shop</h1>
+    <h1><a href="/home">My Shop</a></h1>
 </div>
 <div class="topnav">
     <a href="/only-available">Only Available</a>
@@ -16,6 +16,10 @@
     <a href="/average-stock">Average Stock</a>
     <a href="/most-expensive">Most Expensive Available</a>
 </div>
+<form th:action="@{/search}" method="post">
+    <input type="text" id="searchInput" name="searchQuery" placeholder="...something like Nike"/>
+    <button type="submit">Search</button>
+</form>
 <div>
     <p th:text="${words} + ${result}"></p>
 </div>
