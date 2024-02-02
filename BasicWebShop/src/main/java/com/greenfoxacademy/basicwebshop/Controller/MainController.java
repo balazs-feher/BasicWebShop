@@ -6,7 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class MainController {
@@ -25,6 +27,24 @@ public class MainController {
     @GetMapping("/home")
     public String getHome(Model model){
         model.addAttribute("shopItems", shopItems);
+        return "home";
+    }
+
+    @GetMapping("/only-available")
+    public String getOnlyAvailable(Model model){
+        List<ShopItem> availableItems = shopItems.stream()
+                .filter(shopItem -> shopItem.getQuantityOfStock() > 0)
+                .collect(Collectors.toList());
+        model.addAttribute("shopItems", availableItems);
+        return "home";
+    }
+
+    @GetMapping("/cheapest-first")
+    public String getCheapestFirst(Model model){
+        List<ShopItem> itemsInPriceOrder = shopItems.stream()
+                .sorted(Comparator.comparingDouble(ShopItem::getPrice))
+                .collect(Collectors.toList());
+        model.addAttribute("shopItems", itemsInPriceOrder);
         return "home";
     }
 }

@@ -3,26 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Basic Web Shop</title>
-    <link rel="stylesheet" th:href="@{/styles.css}" />
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
 </head>
 <body>
-<div class="head-title">
-    <h1>My Shop</h1>
-</div>
+    <div class="head-title">
+      <h1>My Shop</h1>
+    </div>
+    <div class="topnav">
+        <a class="active" href="/only-available">Only Available</a>
+        <a href="/cheapest-first">Cheapest First</a>
+        <a href="#contains-nike">Contains Nike</a>
+        <a href="#average-stock">Average Stock</a>
+        <a href="#most-expensive">Most Expensive Available</a>
+    </div>
 <table>
     <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Quantity of stock</th>
-        </tr>
-        <tr th:each="item : ${shopItems}">
-            <td th:text="${item.name}"></td>
-            <td th:text="${item.description}"></td>
-            <td th:text="${item.price}"></td>
-            <td th:text="${item.quantityOfStock}"></td>
-        </tr>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity of stock</th>
+    </tr>
+    <tr th:each="item : ${shopItems}">
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.description}"></td>
+        <td th:text="${item.price}"></td>
+        <td th:text="${item.quantityOfStock}"></td>
+    </tr>
     </thead>
     <tbody>
 
