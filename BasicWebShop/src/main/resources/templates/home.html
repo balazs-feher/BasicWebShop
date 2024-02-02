@@ -6,20 +6,24 @@
     <link rel="stylesheet" th:href="@{/styles.css}"/>
 </head>
 <body>
-    <div class="head-title">
-        <h1><a href="/home">My Shop</a></h1>
-    </div>
-    <div class="topnav">
-        <a href="/only-available">Only Available</a>
-        <a href="/cheapest-first">Cheapest First</a>
-        <a href="/contains-nike">Contains Nike</a>
-        <a href="/average-stock">Average Stock</a>
-        <a href="/most-expensive">Most Expensive Available</a>
-    </div>
-    <form th:action="@{/search}" method="post">
-        <input type="text" id="searchInput" name="searchQuery" placeholder="...something like Nike"/>
-        <button type="submit">Submit</button>
-    </form>
+<div class="head-title">
+    <h1 class="colored-line"><a href="/home">My Shop</a></h1>
+</div>
+<header class="main-header">
+<div class="topnav">
+    <button><a href="/only-available">ONLY AVAILABLE</a></button>
+    <button><a href="/cheapest-first">CHEAPEST FIRST</a></button>
+    <button><a href="/contains-nike">CONTAINS NIKE</a></button>
+    <button><a href="/average-stock">AVERAGE STOCK</a></button>
+    <button><a href="/most-expensive">MOST EXPENSIVE AVAILABLE</a></button>
+</div>
+</header>
+<br>
+<h3 class="searchbar-label">Search for...</h3>
+<form th:action="@{/search}" method="post">
+    <input type="text" id="searchInput" name="searchQuery" placeholder="...something like Nike"/>
+    <button type="submit">Submit</button>
+</form>
 <table>
     <thead>
     <tr>

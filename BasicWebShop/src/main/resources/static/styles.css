@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html, body {
+    display: block;
+    width: 80%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.head-title h1 a {
+    color: cadetblue;
+    border-bottom: cadetblue;
+}
+
+.colored-line {
+    width: inherit;
+    position: relative;
+}
+
+.colored-line::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%; /* Adjust the width of the line */
+    height: 1px; /* Adjust the thickness of the line */
+    background-color: cadetblue; /* Adjust the color of the line */
+}
+
+.topnav button {
+
+    background-color: red;
+    color: white;
+    border: none ;
+    border-radius: 12px;
+    text-decoration: none
+}
+
+.topnav {
+    display: flex;
+    justify-content: space-between;
+}
+
+a:link {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:active {
+    color: hotpink;
+    background-color: transparent;
+    text-decoration: none;}
+
+table {
+
+    border-color: aliceblue;
+    border-collapse: collapse;
+}
+th {
+    background-color: cyan;
+
+}
+
+.searchbar-label{
+    color: red;
+}
