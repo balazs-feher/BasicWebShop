@@ -1,5 +1,6 @@
 package com.greenfoxacademy.basicwebshop.Controller;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.greenfoxacademy.basicwebshop.Model.ShopItem;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,5 +56,28 @@ public class MainController {
                 .collect(Collectors.toList());
         model.addAttribute("shopItems", nikeItems);
         return "home";
+    }
+
+    @GetMapping("/average-stock")
+    public String getAverageStock(Model model){
+        double averageStock = shopItems.stream()
+                .mapToInt(ShopItem::getQuantityOfStock)
+                .average()
+                .orElse(0);
+        model.addAttribute("result", averageStock);
+        model.addAttribute("words", "Average stock: ");
+        return "average-stock";
+    }
+
+    @GetMapping("/most-expensive")
+    public String getMostExpensive(Model model){
+        ShopItem mostExpensive = shopItems.stream()
+                .max(Comparator.comparingDouble(ShopItem::getPrice))
+                .orElse(null);
+
+        String mostExpensiveItemName = mostExpensive != null ? mostExpensive.getName() : "No available items";
+        model.addAttribute("words", "Name: ");
+        model.addAttribute("result", mostExpensiveItemName);
+        return "average-stock";
     }
 }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Web Shop</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+</head>
+<body>
+<div class="head-title">
+    <h1>My Shop</h1>
+</div>
+<div class="topnav">
+    <a href="/only-available">Only Available</a>
+    <a href="/cheapest-first">Cheapest First</a>
+    <a href="/contains-nike">Contains Nike</a>
+    <a href="/average-stock">Average Stock</a>
+    <a href="/most-expensive">Most Expensive Available</a>
+</div>
+<div>
+    <p th:text="${words} + ${result}"></p>
+</div>
+
+</body>
+</html>
