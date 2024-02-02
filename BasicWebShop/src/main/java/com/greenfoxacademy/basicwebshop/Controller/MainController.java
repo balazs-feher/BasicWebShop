@@ -47,4 +47,13 @@ public class MainController {
         model.addAttribute("shopItems", itemsInPriceOrder);
         return "home";
     }
+
+    @GetMapping("/contains-nike")
+    public String getContainsNike(Model model){
+        List<ShopItem> nikeItems = shopItems.stream()
+                .filter(item -> item.getDescription().toLowerCase().contains("nike"))
+                .collect(Collectors.toList());
+        model.addAttribute("shopItems", nikeItems);
+        return "home";
+    }
 }
